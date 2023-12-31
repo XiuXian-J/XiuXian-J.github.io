@@ -17,7 +17,7 @@
 
 
 
-<title>Tag: js | (X~X)</title>
+<title>week 2 | (X~X)</title>
 
 
 
@@ -128,38 +128,202 @@
     }
 </script>
             <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">week 2</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">XiuXian-J</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 31, 2023&nbsp;&nbsp;10:21:30</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/study/">study</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Monday"><a href="#Monday" class="headerlink" title="Monday"></a>Monday</h1><ul>
+<li>复习内部类：<ul>
+<li>数学函数类</li>
+<li>日期函数</li>
+</ul>
+</li>
+</ul>
+<h1 id="Tuesday"><a href="#Tuesday" class="headerlink" title="Tuesday"></a>Tuesday</h1><ul>
+<li>复习内部类：<ul>
+<li>日期格式化类</li>
+<li>日历类</li>
+<li>String类</li>
+</ul>
+</li>
+</ul>
+<h1 id="Wednesday"><a href="#Wednesday" class="headerlink" title="Wednesday"></a>Wednesday</h1><ul>
+<li>复习万年历的编码</li>
+</ul>
+<h1 id="Thursday"><a href="#Thursday" class="headerlink" title="Thursday"></a>Thursday</h1><ul>
+<li>复习对象与类</li>
+<li>复习访问修饰符</li>
+</ul>
+<h1 id="Friday"><a href="#Friday" class="headerlink" title="Friday"></a>Friday</h1><ul>
+<li>复习构造方法</li>
+</ul>
+<h1 id="Saturday"><a href="#Saturday" class="headerlink" title="Saturday"></a>Saturday</h1><ul>
+<li>再复习oop：<ul>
+<li>封装</li>
+<li>继承</li>
+</ul>
+</li>
+<li>复习static关键字</li>
+</ul>
+<h1 id="Sunday"><a href="#Sunday" class="headerlink" title="Sunday"></a>Sunday</h1><ul>
+<li>再复习oop：<ul>
+<li>多态</li>
+<li>方法重载</li>
+</ul>
+</li>
+<li>再复习-位运算符+逻辑运算符</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>XiuXian-J</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://xiuxian-j.github.io/hexo/posts/3810406965.html">http://xiuxian-j.github.io/hexo/posts/3810406965.html</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
                 
 
-    
-<div class="container">
-    <div class="post-wrap tags">
-        <h2 class="post-title">-&nbsp;Tag&nbsp;·&nbsp;js-</h2>
-    </div>
-    <div class="post-wrap archive">
-    
-    
+            </section>
         
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/js/"># js</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/posts/2048353167.html">week 1</a>
+            
+        </section>
 
-        
-            <h3>2023</h3>
-        
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/posts/3810406965.html">week 2</a>
-            <span class="archive-item-date">December 31, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/posts/2048353167.html">week 1</a>
-            <span class="archive-item-date">December 24, 2023</span>
-        </article>
-    
-    
-</div>
+    </article>
 </div>
 
             </div>
