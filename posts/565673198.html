@@ -131,6 +131,71 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
@@ -160,7 +225,20 @@
         </header>
 
         <div class="post-content">
-            
+            <h1 id="Monday"><a href="#Monday" class="headerlink" title="Monday"></a>Monday</h1><p><code>什么也没学，但是骑了2小时的车</code></p>
+<h1 id="Tuesday"><a href="#Tuesday" class="headerlink" title="Tuesday"></a>Tuesday</h1><p><code>本来计划从早上开始学习，弥补一下昨天的懒惰，结果耗到了晚上，也没学习，去夜跑了</code></p>
+<h1 id="Wednesday"><a href="#Wednesday" class="headerlink" title="Wednesday"></a>Wednesday</h1><p><code>可能是昨晚夜跑着凉，发烧了。果然我总是要到最后一刻才会行动。这个寒假，我要成为一个自律的人。</code><br><code>Error: Spawn failed 配置blog时出现的问题。头疼，明天再说</code></p>
+<h1 id="Thursday"><a href="#Thursday" class="headerlink" title="Thursday"></a>Thursday</h1><p><code>还是没有找到解决方案</code></p>
+<h1 id="Friday"><a href="#Friday" class="headerlink" title="Friday"></a>Friday</h1><p><code>终于找到问题所在了</code></p>
+<p>[反思：花费大量时间在blog上，太本末倒置了，目前的重心应该是学习Java上]</p>
+<ul>
+<li>Blog: hexo d 后 Error: Spawn failed：<ul>
+<li>首先，检查能否进入github！！！！！！！！！</li>
+<li>删除文件<code>.deploy_git</code> ,输入<code>git config --global core.autocrlf false</code></li>
+</ul>
+</li>
+</ul>
+
         </div>
 
         
