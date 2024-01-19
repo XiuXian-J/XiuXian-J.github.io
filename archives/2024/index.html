@@ -17,7 +17,7 @@
 
 
 
-<title>week 1 | (X~X)</title>
+<title>Archives: 2024 | (X~X)</title>
 
 
 
@@ -128,195 +128,22 @@
     }
 </script>
             <div class="main">
-                <div class="container">
+                <div class="post-wrap archive">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
-
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">week 1</h1>
-            
-                <div class="post-meta">
-                    
-                        Author: <a itemprop="author" rel="author" href="/">XiuXian-J</a>
-                    
-
-                    
-                        <span class="post-time">
-                        Date: <a href="#">December 24, 2023&nbsp;&nbsp;20:12:33</a>
-                        </span>
-                    
-                    
-                        <span class="post-category">
-                    Category:
-                            
-                                <a href="/categories/study/">study</a>
-                            
-                        </span>
-                    
-                </div>
-            
-        </header>
-
-        <div class="post-content">
-            <h1 id="星期一"><a href="#星期一" class="headerlink" title="星期一"></a>星期一</h1><ul>
-<li>复习javase：<ul>
-<li>if-else-if-else</li>
-<li>三元运算</li>
-<li>switch</li>
-</ul>
-</li>
-</ul>
-<h1 id="星期二"><a href="#星期二" class="headerlink" title="星期二"></a>星期二</h1><ul>
-<li>复习javase：<ul>
-<li>while循环</li>
-<li>do-while循环</li>
-<li>for循环</li>
-<li>多重循环</li>
-</ul>
-</li>
-</ul>
-<h1 id="星期三"><a href="#星期三" class="headerlink" title="星期三"></a>星期三</h1><ul>
-<li>复习-数组</li>
-</ul>
-<h1 id="星期四"><a href="#星期四" class="headerlink" title="星期四"></a>星期四</h1><ul>
-<li>复习-方法</li>
-</ul>
-<h1 id="星期五"><a href="#星期五" class="headerlink" title="星期五"></a>星期五</h1><ul>
-<li>完善blog</li>
-</ul>
-<h1 id="星期六"><a href="#星期六" class="headerlink" title="星期六"></a>星期六</h1><ul>
-<li>完善blog</li>
-<li>复习拆装箱</li>
-</ul>
-<h1 id="星期天"><a href="#星期天" class="headerlink" title="星期天"></a>星期天</h1><ul>
-<li>完善blog</li>
-<li>复习-oop</li>
-</ul>
-
-        </div>
+        
 
         
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>XiuXian-J</span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="http://xiuxian-j.github.io/hexo/posts/2048353167.html">http://xiuxian-j.github.io/hexo/posts/2048353167.html</a></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
-                    </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY</strong>?</span>
-                     </p>
-                
-
-            </section>
+            <h3>2024</h3>
         
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/posts/3810406965.html">week 2</a>
-            
-            
-            <a class="next" rel="next" href="/posts/1243066710.html">Hello World</a>
-            
-        </section>
 
-
-    </article>
+        <article class="archive-item">
+            <a class="archive-item-link" href="/posts/565673198.html">week-3</a>
+            <span class="archive-item-date">January 19, 2024</span>
+        </article>
+    
+    
 </div>
-
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">
