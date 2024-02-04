@@ -17,7 +17,7 @@
 
 
 
-<title>Category: study | (X~X)</title>
+<title>week-5 | (X~X)</title>
 
 
 
@@ -128,68 +128,229 @@
     }
 </script>
             <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">week-5</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">XiuXian-J</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">February 4, 2024&nbsp;&nbsp;10:25:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/study/">study</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Monday"><a href="#Monday" class="headerlink" title="Monday"></a>Monday</h1><ul>
+<li>js:<ul>
+<li>ArrayList常用的API</li>
+</ul>
+</li>
+</ul>
+<h1 id="Tuesday"><a href="#Tuesday" class="headerlink" title="Tuesday"></a>Tuesday</h1><ul>
+<li>js：<ul>
+<li>LinkedList常用接口和List的比较器</li>
+</ul>
+</li>
+<li>四级：<ul>
+<li>背单词50</li>
+</ul>
+</li>
+</ul>
+<h1 id="Wednesday"><a href="#Wednesday" class="headerlink" title="Wednesday"></a>Wednesday</h1><ul>
+<li>js：<ul>
+<li>Set集合常用接口</li>
+</ul>
+</li>
+<li>四级：<ul>
+<li>背单词50</li>
+</ul>
+</li>
+</ul>
+<h1 id="Thursday"><a href="#Thursday" class="headerlink" title="Thursday"></a>Thursday</h1><ul>
+<li><p>js：</p>
+<ul>
+<li>HashSet、TreeSet和LinkedHashSet</li>
+</ul>
+</li>
+<li><p>四级：</p>
+<ul>
+<li>单词30</li>
+<li>看剧</li>
+</ul>
+</li>
+</ul>
+<h1 id="Friday"><a href="#Friday" class="headerlink" title="Friday"></a>Friday</h1><ul>
+<li>js：<ul>
+<li>Map常用接口</li>
+</ul>
+</li>
+<li>四级：<ul>
+<li>单词20</li>
+<li>阅读1</li>
+</ul>
+</li>
+</ul>
+<h1 id="Saturday"><a href="#Saturday" class="headerlink" title="Saturday"></a>Saturday</h1><ul>
+<li>js：<ul>
+<li>遍历Map的key</li>
+</ul>
+</li>
+<li>四级：<ul>
+<li>阅读2</li>
+</ul>
+</li>
+</ul>
+<h1 id="Sunday"><a href="#Sunday" class="headerlink" title="Sunday"></a>Sunday</h1><ul>
+<li>js：<ul>
+<li>Collections工具类</li>
+<li>oop复习</li>
+</ul>
+</li>
+<li>四级：<ul>
+<li>单词回顾</li>
+<li>电影</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>XiuXian-J</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://xiuxian-j.github.io/posts/3369392603.html">http://xiuxian-j.github.io/posts/3369392603.html</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
                 
 
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/posts/3218336077.html">week-4</a>
+            
+        </section>
 
-    
-<div class="container">
-    <div class="post-wrap categories">
-        <h2 class="post-title">-&nbsp;Categories&nbsp;·&nbsp;study-</h2>
-    </div>
-    <div class="post-wrap archive">
-    
-    
-        
 
-        
-            <h3>2024</h3>
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/posts/3369392603.html">week-5</a>
-            <span class="archive-item-date">February 4, 2024</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/posts/3218336077.html">week-4</a>
-            <span class="archive-item-date">January 28, 2024</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/posts/565673198.html">week-3</a>
-            <span class="archive-item-date">January 19, 2024</span>
-        </article>
-    
-        
-
-        
-            <h3>2023</h3>
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/posts/3810406965.html">week 2</a>
-            <span class="archive-item-date">December 31, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/posts/2048353167.html">week 1</a>
-            <span class="archive-item-date">December 24, 2023</span>
-        </article>
-    
-    
-</div>
+    </article>
 </div>
 
             </div>
